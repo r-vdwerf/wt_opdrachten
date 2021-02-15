@@ -10,28 +10,30 @@ public class Demo {
 	static Scanner sc = new Scanner(System.in);
 	static int[] optellen = {1,2,3,4};
 	static int[] sorteren = {2,6,4,1,7};
-	static boolean[] onderdelen = {false, true, true, true}; // true is kapot
+	static boolean[] onderdelen = {false, false, true, true}; // true is kapot
 	static ArrayList<String> items = new ArrayList<String>();
+	static String woord = "fiets";
 	static char temp_l = 'a';	
 	
 	public static void main(String[] args) {		
-		//ex1("po", "ging", "en");
-		//ex2("regenen", 'e');			
-		//ex3();
-		//ex4();
-		//ex5();
-		//ex6();
-		//ex7();
-		//ex8();		
-		//ex10();		
+		ex1("po", "ging", "en");
+		ex2("regenen", 'e');			
+		ex3(optellen);
+		ex4(sorteren);
+		ex5(onderdelen);
+		ex6("penguin");
+		ex7(woord);
+		ex8();
+		System.out.println("Opdracht 10: iets met een woordenslang");
+		ex10();		
 	}
 	/* Methods */
-	private void ex1(String s1, String s2, String s3) {
+	static void ex1(String s1, String s2, String s3) {
 			String s = s1.concat(s2).concat(s3);
 			System.out.println("opdracht 1: "+s);	
 		}
 	
-	private void ex2(String word2, char letter) {
+	static void ex2(String word2, char letter) {
 		int count = 0;		
 		for(int i=0;i<word2.length();i++) {
 			if(word2.charAt(i)==letter){
@@ -41,7 +43,7 @@ public class Demo {
 		System.out.println("Opdracht 2: "+count);
 	}
 	
-	private void ex3() {
+	static void ex3(int[] optellen) {
 		int sum = 0;
 		for(int i:optellen) {
 			sum+=i;
@@ -49,26 +51,24 @@ public class Demo {
 		System.out.println("Opdracht 3: "+sum);
 	}
 	
-	static void ex4() {
+	static void ex4(int[] sorteren) {
 		Arrays.sort(sorteren);
 		System.out.println("Opdracht 4: "+Arrays.toString(sorteren));
 	}
 	
-	static void ex5() {
+	static void ex5(boolean[] onderdelen) {
 		Auto auto = new Auto(onderdelen);		
 		Monteur Piet = new Monteur();
 		Piet.repareren(auto);					
 	}
 
-	static void ex6() {
-		String s = sc.nextLine();
+	static void ex6(String s) {
 		char[] a6 = s.replaceAll(" ","").toCharArray();
 		Arrays.sort(a6);
 		System.out.println("Opdracht 6: "+Arrays.toString(a6));
 	}
 	
-	static void ex7() {		
-		String s = "fiets";
+	static void ex7(String s) {		
 		String wrd = new String();
 		for(int i=0;i<s.length();i++) {
 			wrd += "_ ";
@@ -99,11 +99,6 @@ public class Demo {
 		A.starten();
 	}
 	
-	static void vliegen(Vliegend v) {
-		v.vlieg();
-		System.out.println("ik ben aan het vliegen");
-	}
-	
 	static void ex10() {
 		String s = sc.nextLine();
 		ex10_tandenborstel(s);
@@ -128,23 +123,3 @@ public class Demo {
 	}
 }
 /* Optional: Objects */
-interface Vliegend{
-	void vlieg();
-}
-
-class Vliegtuig implements Vliegend{
-	public void vlieg() {
-		System.out.println("ik vlieg maar ben geen dier");
-	}
-}
-
-class Leeuw{
-	
-}
-
-class Spreeuw implements Vliegend{
-	public void vlieg() {
-		System.out.println("ik vlieg en ben een dier");
-	}
-}
-
